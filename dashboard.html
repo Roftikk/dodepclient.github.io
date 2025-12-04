@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный кабинет - RustMe Client</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .dashboard-container {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            padding-top: 80px;
+        }
+        
+        .dashboard-header {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .user-profile {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.9));
+            border-radius: var(--radius);
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .user-avatar {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+        
+        .user-info h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+        
+        .user-role {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+        
+        .role-developer {
+            background: rgba(245, 158, 11, 0.2);
+            color: #fcd34d;
+            border: 1px solid #f59e0b;
+        }
+        
+        .dashboard-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+        }
+        
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .dashboard-card {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.9));
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+        }
+        
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+        
+        .subscription-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+        
+        .status-active {
+            background: rgba(16, 185, 129, 0.2);
+            color: #6ee7b7;
+            border: 1px solid var(--secondary);
+        }
+        
+        .status-inactive {
+            background: rgba(239, 68, 68, 0.2);
+            color: #fca5a5;
+            border: 1px solid var(--danger);
+        }
+        
+        .subscription-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .subscription-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(99, 102, 241, 0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .subscription-details h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+        
+        .subscription-price {
+            color: #94a3b8;
+            font-size: 0.875rem;
+        }
+        
+        .subscription-features {
+            margin-top: 1.5rem;
+        }
+        
+        .feature-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .feature-item i {
+            color: var(--secondary);
+        }
+        
+        .key-section {
+            margin-top: 1.5rem;
+        }
+        
+        .key-display {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius);
+            padding: 1rem;
+            font-family: monospace;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            word-break: break-all;
+        }
+        
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .statistics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius);
+        }
+        
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+        
+        .stat-label {
+            color: #94a3b8;
+            font-size: 0.875rem;
+        }
+        
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .action-btn {
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius);
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .action-btn:hover {
+            background: rgba(99, 102, 241, 0.2);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+        
+        .action-btn i {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .admin-notice {
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            border-radius: var(--radius);
+            padding: 1rem;
+            margin-top: 2rem;
+            text-align: center;
+        }
+        
+        .admin-notice a {
+            color: #fcd34d;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .admin-notice a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-shield-alt"></i>
+                <span>RustMe</span>
+                <span class="logo-badge">Dashboard</span>
+            </div>
+            
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Главная</a>
+                <a href="#profile" class="nav-link active">Профиль</a>
+                <a href="#subscription" class="nav-link">Подписка</a>
+                <a href="#keys" class="nav-link">Ключи</a>
+                <a href="#" class="nav-link" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i> Выйти
+                </a>
+            </div>
+            
+            <button class="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <div class="dashboard-header">
+            <div class="user-profile">
+                <div class="user-avatar">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <div class="user-info">
+                    <h2 id="dashboardUsername">Загрузка...</h2>
+                    <div id="userRoleBadge" class="user-role role-developer">
+                        <i class="fas fa-user"></i> Загрузка...
+                    </div>
+                    <p id="userEmail" style="color: #94a3b8;">Загрузка...</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="dashboard-content">
+            <div class="dashboard-grid">
+                <!-- Подписка -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3 class="card-title">Моя подписка</h3>
+                        <div id="subscriptionStatus" class="subscription-status status-active">
+                            <i class="fas fa-circle"></i> Активна
+                        </div>
+                    </div>
+                    
+                    <div class="subscription-info">
+                        <div class="subscription-icon">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <div class="subscription-details">
+                            <h3 id="subscriptionName">RustMe Full</h3>
+                            <p class="subscription-price" id="subscriptionPrice">199₽/месяц</p>
+                        </div>
+                    </div>
+                    
+                    <div class="subscription-features">
+                        <h4>Доступные функции:</h4>
+                        <div class="feature-list" id="subscriptionFeatures">
+                            <!-- Заполняется через JS -->
+                        </div>
+                    </div>
+                    
+                    <div class="quick-actions">
+                        <a href="#renew" class="action-btn">
+                            <i class="fas fa-sync-alt"></i>
+                            <span>Продлить</span>
+                        </a>
+                        <a href="#upgrade" class="action-btn">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>Улучшить</span>
+                        </a>
+                        <a href="#cancel" class="action-btn">
+                            <i class="fas fa-times-circle"></i>
+                            <span>Отменить</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Ключи -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3 class="card-title">Мои ключи</h3>
+                    </div>
+                    
+                    <div class="key-section">
+                        <p style="margin-bottom: 1rem; color: #94a3b8;">Ваш активационный ключ:</p>
+                        <div class="key-display" id="userKey">
+                            XXXX-XXXX-XXXX-XXXX
+                        </div>
+                        <div class="btn-group">
+                            <button class="btn btn-outline" onclick="copyKey()">
+                                <i class="fas fa-copy"></i> Копировать
+                            </button>
+                            <button class="btn btn-primary" onclick="generateNewKey()">
+                                <i class="fas fa-redo"></i> Новый ключ
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 1.5rem;">
+                        <p style="color: #94a3b8; margin-bottom: 0.5rem;">Срок действия:</p>
+                        <p style="font-weight: 600;" id="keyExpiry">до 15.03.2024</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Статистика -->
+            <div class="dashboard-card">
+                <div class="card-header">
+                    <h3 class="card-title">Статистика использования</h3>
+                </div>
+                
+                <div class="statistics-grid">
+                    <div class="stat-item">
+                        <div class="stat-value">127</div>
+                        <div class="stat-label">Часов игры</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">98%</div>
+                        <div class="stat-label">Стабильность</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">24</div>
+                        <div class="stat-label">Дней подписки</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">0</div>
+                        <div class="stat-label">Банов</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Быстрые действия -->
+            <div class="dashboard-card">
+                <div class="card-header">
+                    <h3 class="card-title">Быстрые действия</h3>
+                </div>
+                
+                <div class="quick-actions">
+                    <a href="index.html#mods" class="action-btn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Купить подписку</span>
+                    </a>
+                    <a href="#" class="action-btn">
+                        <i class="fas fa-download"></i>
+                        <span>Скачать клиент</span>
+                    </a>
+                    <a href="#" class="action-btn">
+                        <i class="fas fa-question-circle"></i>
+                        <span>Поддержка</span>
+                    </a>
+                    <a href="#" class="action-btn">
+                        <i class="fas fa-cog"></i>
+                        <span>Настройки</span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Уведомление для админа -->
+            <div id="adminNotice" class="admin-notice" style="display: none;">
+                <p><i class="fas fa-crown"></i> Вы имеете права разработчика. <a href="admin-panel.html">Перейти в админ-панель →</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Загрузка данных пользователя
+        document.addEventListener('DOMContentLoaded', function() {
+            const user = JSON.parse(localStorage.getItem('rustme_user'));
+            
+            if (!user) {
+                window.location.href = 'login.html';
+                return;
+            }
+            
+            // Обновляем интерфейс
+            document.getElementById('dashboardUsername').textContent = user.username;
+            document.getElementById('userEmail').textContent = user.email || 'Email не указан';
+            
+            // Устанавливаем роль
+            const roleBadge = document.getElementById('userRoleBadge');
+            roleBadge.className = `user-role role-${user.role}`;
+            roleBadge.innerHTML = `${getRoleEmoji(user.role)} ${getRoleName(user.role)}`;
+            
+            // Устанавливаем подписку
+            const subscription = user.subscriptions && user.subscriptions.length > 0 ? user.subscriptions[0] : 'none';
+            updateSubscriptionInfo(subscription);
+            
+            // Показываем уведомление для разработчика
+            if (user.role === 'developer') {
+                document.getElementById('adminNotice').style.display = 'block';
+            }
+            
+            // Генерируем демо ключ
+            generateDemoKey();
+        });
+        
+        function getRoleEmoji(role) {
+            const emojis = {
+                'developer': '👑',
+                'admin': '🛡️',
+                'alpha': '⭐',
+                'moder': '⚡',
+                'full': '👑',
+                'tester': '🧪',
+                'basic': '🔵',
+                'legit': '🟢',
+                'lite': '🟡',
+                'user': '⚪'
+            };
+            return emojis[role] || '⚪';
+        }
+        
+        function getRoleName(role) {
+            const names = {
+                'developer': 'Developer',
+                'admin': 'НадзирательЮТ',
+                'alpha': 'Alpha',
+                'moder': 'Moder',
+                'full': 'Full',
+                'tester': 'Tester',
+                'basic': 'Basic',
+                'legit': 'Legit',
+                'lite': 'Lite',
+                'user': 'Пользователь'
+            };
+            return names[role] || role;
+        }
+        
+        function updateSubscriptionInfo(subscription) {
+            const subscriptionInfo = {
+                'full': {
+                    name: 'RustMe Full',
+                    price: '199₽/месяц',
+                    features: ['Все функции ESP', 'Умный Aimbot', 'Fly Hack', 'Приоритетная поддержка'],
+                    status: 'active'
+                },
+                'basic': {
+                    name: 'RustMe Basic',
+                    price: '99₽/месяц',
+                    features: ['Only ESP', 'Фильтры предметов', 'Радар'],
+                    status: 'active'
+                },
+                'legit': {
+                    name: 'RustMe Legit',
+                    price: '79₽/месяц',
+                    features: ['Only Chams', 'Bind H', 'Скрытый интерфейс', 'Анти-репорт'],
+                    status: 'active'
+                },
+                'lite': {
+                    name: 'RustMe Lite',
+                    price: '89₽/месяц',
+                    features: ['No Recoil', 'ESP Basic', 'Авто-сбор', 'Быстрые стройки'],
+                    status: 'active'
+                },
+                'tester': {
+                    name: 'RustMe Tester',
+                    price: 'Бесплатно',
+                    features: ['Only ESP', 'Тестовый доступ', 'Отчеты о багах'],
+                    status: 'active'
+                },
+                'none': {
+                    name: 'Нет подписки',
+                    price: '0₽/месяц',
+                    features: ['Доступ к базовым функциям отсутствует'],
+                    status: 'inactive'
+                }
+            };
+            
+            const info = subscriptionInfo[subscription] || subscriptionInfo.none;
+            
+            document.getElementById('subscriptionName').textContent = info.name;
+            document.getElementById('subscriptionPrice').textContent = info.price;
+            
+            const statusEl = document.getElementById('subscriptionStatus');
+            statusEl.className = `subscription-status status-${info.status}`;
+            statusEl.innerHTML = `<i class="fas fa-circle"></i> ${info.status === 'active' ? 'Активна' : 'Неактивна'}`;
+            
+            const featuresList = document.getElementById('subscriptionFeatures');
+            featuresList.innerHTML = info.features.map(feature => `
+                <div class="feature-item">
+                    <i class="fas fa-check"></i>
+                    <span>${feature}</span>
+                </div>
+            `).join('');
+        }
+        
+        function generateDemoKey() {
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            let key = '';
+            for (let i = 0; i < 16; i++) {
+                if (i > 0 && i % 4 === 0) key += '-';
+                key += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            document.getElementById('userKey').textContent = key;
+            
+            // Устанавливаем дату истечения (через 30 дней)
+            const expiryDate = new Date();
+            expiryDate.setDate(expiryDate.getDate() + 30);
+            document.getElementById('keyExpiry').textContent = `до ${expiryDate.toLocaleDateString('ru-RU')}`;
+        }
+        
+        function copyKey() {
+            const key = document.getElementById('userKey').textContent;
+            navigator.clipboard.writeText(key).then(() => {
+                alert('Ключ скопирован в буфер обмена!');
+            });
+        }
+        
+        function generateNewKey() {
+            if (confirm('Генерация нового ключа деактивирует старый. Продолжить?')) {
+                generateDemoKey();
+                alert('Новый ключ сгенерирован!');
+            }
+        }
+    </script>
+</body>
+</html>

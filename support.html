@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поддержка - RustMe Client</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-shield-alt"></i>
+                <span>RustMe</span>
+                <span class="logo-badge">Поддержка</span>
+            </div>
+            
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Главная</a>
+                <a href="download.html" class="nav-link">Скачать</a>
+                <a href="community.html" class="nav-link">Сообщество</a>
+            </div>
+            
+            <button class="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <section class="support-section">
+        <div class="section-header">
+            <h1 class="section-title">Центр <span class="gradient-text">поддержки</span></h1>
+            <p class="section-subtitle">Помощь по использованию RustMe Client</p>
+        </div>
+        
+        <div class="support-grid">
+            <div class="support-card">
+                <i class="fas fa-question-circle"></i>
+                <h3>Частые вопросы</h3>
+                <p>Ответы на самые популярные вопросы пользователей</p>
+                <a href="#faq" class="btn btn-outline" style="margin-top: 1rem;">Перейти к FAQ</a>
+            </div>
+            
+            <div class="support-card">
+                <i class="fas fa-book"></i>
+                <h3>Документация</h3>
+                <p>Подробное руководство по всем функциям клиента</p>
+                <a href="https://docs.rustme-client.ru" target="_blank" class="btn btn-outline" style="margin-top: 1rem;">
+                    <i class="fas fa-external-link-alt"></i> Читать
+                </a>
+            </div>
+            
+            <div class="support-card">
+                <i class="fas fa-video"></i>
+                <h3>Видео-гайд</h3>
+                <p>Видео инструкции по установке и настройке</p>
+                <a href="https://youtube.com/rustme" target="_blank" class="btn btn-outline" style="margin-top: 1rem;">
+                    <i class="fab fa-youtube"></i> Смотреть
+                </a>
+            </div>
+            
+            <div class="support-card">
+                <i class="fab fa-telegram"></i>
+                <h3>Telegram поддержка</h3>
+                <p>Напрямую связаться с техподдержкой</p>
+                <a href="https://t.me/dadepbabki" target="_blank" class="telegram-link" style="margin-top: 1rem; display: inline-block;">
+                    <i class="fab fa-telegram"></i> @dadepbabki
+                </a>
+            </div>
+        </div>
+        
+        <div class="faq-section" id="faq">
+            <h2 style="margin-bottom: 2rem;">Часто задаваемые вопросы</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    Как установить RustMe Client?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>1. Скачайте клиент со страницы загрузки</p>
+                    <p>2. Запустите установщик и следуйте инструкциям</p>
+                    <p>3. Введите ваш активационный ключ</p>
+                    <p>4. Запустите Rust и нажмите F10 для открытия меню</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    Клиент не запускается, что делать?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>1. Проверьте, установлены ли .NET Framework 4.8 и Visual C++ Redistributable</p>
+                    <p>2. Добавьте исключение в антивирусе для клиента</p>
+                    <p>3. Запустите от имени администратора</p>
+                    <p>4. Если проблема осталась - обратитесь в поддержку</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    Как продлить подписку?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>1. Зайдите в личный кабинет на сайте</p>
+                    <p>2. Нажмите "Продлить подписку" в разделе "Моя подписка"</p>
+                    <p>3. Выберите срок продления и оплатите</p>
+                    <p>4. Новый ключ придет автоматически</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    Безопасен ли клиент?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Да, RustMe Client использует продвинутые методы обхода античитов:</p>
+                    <p>• Собственный драйвер для защиты</p>
+                    <p>• Шифрование трафика</p>
+                    <p>• Регулярные обновления безопасности</p>
+                    <p>• Скрытый режим работы</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    Как получить возврат средств?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Возврат средств возможен в течение 3 дней с момента покупки:</p>
+                    <p>1. Напишите в Telegram поддержку: @dadepbabki</p>
+                    <p>2. Укажите номер заказа и причину возврата</p>
+                    <p>3. Ожидайте обработки запроса (1-3 рабочих дня)</p>
+                    <p>4. После одобрения средства будут возвращены</p>
+                </div>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 4rem;">
+            <h3>Не нашли ответ на свой вопрос?</h3>
+            <p style="margin: 1rem 0; color: #94a3b8;">Напишите нам напрямую в Telegram</p>
+            <a href="https://t.me/dadepbabki" target="_blank" class="telegram-link" style="font-size: 1.25rem; padding: 1.25rem 2.5rem;">
+                <i class="fab fa-telegram"></i> Написать в поддержку
+            </a>
+        </div>
+    </section>
+
+    <script>
+        function toggleFAQ(element) {
+            const item = element.parentElement;
+            item.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RustMe Client - Лучшие моды для Rust</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-shield-alt"></i>
+                <span>RustMe</span>
+                <span class="logo-badge">Client</span>
+            </div>
+            
+            <div class="nav-links">
+                <a href="#home" class="nav-link active">Главная</a>
+                <a href="#mods" class="nav-link">Моды</a>
+                <a href="#features" class="nav-link">Возможности</a>
+                <a href="#pricing" class="nav-link">Цены</a>
+                <a href="login.html" class="nav-link"><i class="fas fa-user"></i> Вход</a>
+            </div>
+            
+            <button class="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero секция -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-text animate__animated animate__fadeInLeft">
+                <h1 class="hero-title">
+                    <span class="gradient-text">RustMe Client</span>
+                    <br>Профессиональные моды для Rust
+                </h1>
+                <p class="hero-subtitle">Мощный клиент с инновационными функциями для максимального преимущества в игре</p>
+                <div class="hero-buttons">
+                    <a href="#mods" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i> Выбрать мод
+                    </a>
+                    <a href="#features" class="btn btn-outline">
+                        <i class="fas fa-play-circle"></i> Демо
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image animate__animated animate__fadeInRight">
+                <div class="floating-card">
+                    <div class="card-header">
+                        <div class="card-badge vip">VIP</div>
+                        <h3>RustMe Full</h3>
+                    </div>
+                    <div class="card-features">
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>ESP с фильтрами</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Aimbot с настройками</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>No Recoil</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Fly Hack</span>
+                        </div>
+                    </div>
+                    <div class="card-price">
+                        <span class="price">199₽</span>
+                        <span class="period">/месяц</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="hero-stats">
+            <div class="stat-item">
+                <div class="stat-number">15K+</div>
+                <div class="stat-label">Пользователей</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">99.8%</div>
+                <div class="stat-label">Undetected</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Поддержка</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">1.5K+</div>
+                <div class="stat-label">Отзывов</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция с модами -->
+    <section class="mods-section" id="mods">
+        <div class="section-header">
+            <h2 class="section-title">Доступные <span class="gradient-text">Моды</span></h2>
+            <p class="section-subtitle">Выберите подходящий вариант для вашего стиля игры</p>
+        </div>
+        
+        <div class="mods-container">
+            <!-- Tester Mod -->
+            <div class="mod-card" data-aos="fade-up">
+                <div class="mod-header">
+                    <div class="mod-badge tester">
+                        <i class="fas fa-vial"></i>
+                        Tester
+                    </div>
+                    <div class="mod-icon">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                </div>
+                <div class="mod-body">
+                    <h3 class="mod-title">RustMe Tester</h3>
+                    <p class="mod-description">Только для тестеров с ограниченным доступом</p>
+                    <div class="mod-features">
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Only ESP</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Тестовый доступ</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Отчеты о багах</span>
+                        </div>
+                        <div class="feature disabled">
+                            <i class="fas fa-times"></i>
+                            <span>Полный функционал</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mod-footer">
+                    <div class="mod-price">
+                        <span class="price-free">БЕСПЛАТНО</span>
+                        <span class="price-note">Только по инвайтам</span>
+                    </div>
+                    <button class="btn-mod" onclick="showAccessModal('tester')">
+                        <i class="fas fa-lock"></i> Запросить доступ
+                    </button>
+                </div>
+            </div>
+
+            <!-- Basic Mod -->
+            <div class="mod-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="mod-header">
+                    <div class="mod-badge basic">
+                        <i class="fas fa-star"></i>
+                        Basic
+                    </div>
+                    <div class="mod-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                </div>
+                <div class="mod-body">
+                    <h3 class="mod-title">RustMe Basic</h3>
+                    <p class="mod-description">Только ESP для безопасной игры</p>
+                    <div class="mod-features">
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Only ESP</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Фильтры предметов</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Радар</span>
+                        </div>
+                        <div class="feature disabled">
+                            <i class="fas fa-times"></i>
+                            <span>Aimbot</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mod-footer">
+                    <div class="mod-price">
+                        <span class="price">99₽</span>
+                        <span class="period">/месяц</span>
+                    </div>
+                    <button class="btn-mod btn-primary" onclick="selectMod('basic')">
+                        <i class="fas fa-shopping-cart"></i> Купить сейчас
+                    </button>
+                </div>
+            </div>
+
+            <!-- Lite Mod -->
+            <div class="mod-card popular" data-aos="fade-up" data-aos-delay="200">
+                <div class="popular-badge">Популярный</div>
+                <div class="mod-header">
+                    <div class="mod-badge lite">
+                        <i class="fas fa-bolt"></i>
+                        Lite
+                    </div>
+                    <div class="mod-icon">
+                        <i class="fas fa-crosshairs"></i>
+                    </div>
+                </div>
+                <div class="mod-body">
+                    <h3 class="mod-title">RustMe Lite</h3>
+                    <p class="mod-description">Отличный баланс возможностей и скрытности</p>
+                    <div class="mod-features">
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>No Recoil</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>ESP Basic</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Авто-сбор</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Быстрые стройки</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mod-footer">
+                    <div class="mod-price">
+                        <span class="price">89₽</span>
+                        <span class="period">/месяц</span>
+                    </div>
+                    <button class="btn-mod btn-primary" onclick="selectMod('lite')">
+                        <i class="fas fa-shopping-cart"></i> Купить сейчас
+                    </button>
+                </div>
+            </div>
+
+            <!-- Legit Mod -->
+            <div class="mod-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="mod-header">
+                    <div class="mod-badge legit">
+                        <i class="fas fa-user-secret"></i>
+                        Legit
+                    </div>
+                    <div class="mod-icon">
+                        <i class="fas fa-low-vision"></i>
+                    </div>
+                </div>
+                <div class="mod-body">
+                    <h3 class="mod-title">RustMe Legit</h3>
+                    <p class="mod-description">Только чамсы и бинды для максимальной скрытности</p>
+                    <div class="mod-features">
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Only Chams</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Bind H</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Скрытый интерфейс</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Анти-репорт</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mod-footer">
+                    <div class="mod-price">
+                        <span class="price">79₽</span>
+                        <span class="period">/месяц</span>
+                    </div>
+                    <button class="btn-mod btn-primary" onclick="selectMod('legit')">
+                        <i class="fas fa-shopping-cart"></i> Купить сейчас
+                    </button>
+                </div>
+            </div>
+
+            <!-- Full Mod -->
+            <div class="mod-card premium" data-aos="fade-up" data-aos-delay="400">
+                <div class="premium-badge">Премиум</div>
+                <div class="mod-header">
+                    <div class="mod-badge full">
+                        <i class="fas fa-crown"></i>
+                        Full
+                    </div>
+                    <div class="mod-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                </div>
+                <div class="mod-body">
+                    <h3 class="mod-title">RustMe Full</h3>
+                    <p class="mod-description">Полный доступ ко всем функциям VIP</p>
+                    <div class="mod-features">
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Все функции ESP</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Умный Aimbot</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Fly Hack</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Приоритетная поддержка</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mod-footer">
+                    <div class="mod-price">
+                        <span class="price">199₽</span>
+                        <span class="period">/месяц</span>
+                    </div>
+                    <button class="btn-mod btn-premium" onclick="selectMod('full')">
+                        <i class="fas fa-crown"></i> VIP Покупка
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Роли и иерархия -->
+    <section class="roles-section" id="roles">
+        <div class="section-header">
+            <h2 class="section-title">Иерархия <span class="gradient-text">Ролей</span></h2>
+            <p class="section-subtitle">Система ролей и привилегий в нашем сообществе</p>
+        </div>
+        
+        <div class="roles-hierarchy">
+            <div class="hierarchy-level top-level">
+                <div class="role-card developer">
+                    <div class="role-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="role-info">
+                        <h3 class="role-title">👑 Developer</h3>
+                        <p class="role-desc">Полный доступ к системе, генерация ключей, управление пользователями</p>
+                    </div>
+                    <div class="role-badge">Владелец</div>
+                </div>
+            </div>
+            
+            <div class="hierarchy-line"></div>
+            
+            <div class="hierarchy-level middle-level">
+                <div class="role-card admin">
+                    <div class="role-icon">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <div class="role-info">
+                        <h3 class="role-title">🛡️ НадзирательЮТ</h3>
+                        <p class="role-desc">Административные права, модерация, выдача наказаний</p>
+                    </div>
+                    <div class="role-badge">Админ</div>
+                </div>
+                
+                <div class="role-card alpha">
+                    <div class="role-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="role-info">
+                        <h3 class="role-title">⭐ Alpha</h3>
+                        <p class="role-desc">Премиум пользователи, ранний доступ к функциям</p>
+                    </div>
+                    <div class="role-badge">Альфа</div>
+                </div>
+            </div>
+            
+            <div class="hierarchy-line"></div>
+            
+            <div class="hierarchy-level bottom-level">
+                <div class="role-card moder">
+                    <div class="role-icon">
+                        <i class="fas fa-hammer"></i>
+                    </div>
+                    <div class="role-info">
+                        <h3 class="role-title">⚡ Moder</h3>
+                        <p class="role-desc">Модерация чата, помощь пользователям</p>
+                    </div>
+                    <div class="role-badge">Модератор</div>
+                </div>
+                
+                <div class="role-card full">
+                    <div class="role-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <div class="role-info">
+                        <h3 class="role-title">👑 Full</h3>
+                        <p class="role-desc">Доступ ко всем функциям VIP</p>
+                    </div>
+                    <div class="role-badge">VIP</div>
+                </div>
+                
+                <div class="role-card tester">
+                    <div class="role-icon">
+                        <i class="fas fa-vial"></i>
+                    </div>
+                    <div class="role-info">
+                        <h3 class="role-title">🧪 Tester</h3>
+                        <p class="role-desc">Тестирование новых функций, отчеты о багах</p>
+                    </div>
+                    <div class="role-badge">Тестер</div>
+                </div>
+            </div>
+            
+            <div class="hierarchy-line"></div>
+            
+            <div class="hierarchy-level base-level">
+                <div class="role-group">
+                    <div class="role-card basic">
+                        <div class="role-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <div class="role-info">
+                            <h3 class="role-title">🔵 Basic</h3>
+                            <p class="role-desc">Доступ к базовым функциям</p>
+                        </div>
+                        <div class="role-badge">Базовый</div>
+                    </div>
+                    
+                    <div class="role-card legit">
+                        <div class="role-icon">
+                            <i class="fas fa-user-secret"></i>
+                        </div>
+                        <div class="role-info">
+                            <h3 class="role-title">🟢 Legit</h3>
+                            <p class="role-desc">Только легальные функции</p>
+                        </div>
+                        <div class="role-badge">Легит</div>
+                    </div>
+                    
+                    <div class="role-card lite">
+                        <div class="role-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <div class="role-info">
+                            <h3 class="role-title">🟡 Lite</h3>
+                            <p class="role-desc">Облегченная версия</p>
+                        </div>
+                        <div class="role-badge">Лайт</div>
+                    </div>
+                    
+                    <div class="role-card user">
+                        <div class="role-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="role-info">
+                            <h3 class="role-title">⚪ User</h3>
+                            <p class="role-desc">Обычный пользователь</p>
+                        </div>
+                        <div class="role-badge">Пользователь</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>RustMe Client</span>
+                </div>
+                <p class="footer-text">Профессиональные моды для Rust с 2023 года</p>
+                <div class="footer-social">
+                    <a href="#" class="social-icon"><i class="fab fa-discord"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-telegram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h4 class="footer-title">Моды</h4>
+                <a href="#mods" class="footer-link">RustMe Full</a>
+                <a href="#mods" class="footer-link">RustMe Basic</a>
+                <a href="#mods" class="footer-link">RustMe Legit</a>
+                <a href="#mods" class="footer-link">RustMe Lite</a>
+            </div>
+            
+            <div class="footer-section">
+                <h4 class="footer-title">Поддержка</h4>
+                <a href="#" class="footer-link">Документация</a>
+                <a href="#" class="footer-link">FAQ</a>
+                <a href="#" class="footer-link">Контакты</a>
+                <a href="admin-panel.html" class="footer-link">Админ-панель</a>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2024 RustMe Client. Все права защищены.</p>
+            <div class="footer-links">
+                <a href="#">Политика конфиденциальности</a>
+                <a href="#">Условия использования</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Модальное окно -->
+    <div class="modal" id="accessModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Запросить доступ</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p id="modalMessage">Для получения доступа к Tester версии необходимо получить инвайт от администратора.</p>
+                <div class="form-group">
+                    <label for="username">Ваш никнейм</label>
+                    <input type="text" id="username" placeholder="Введите ваш никнейм">
+                </div>
+                <div class="form-group">
+                    <label for="inviteCode">Инвайт код (если есть)</label>
+                    <input type="text" id="inviteCode" placeholder="XXXX-XXXX-XXXX">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" onclick="closeModal()">Отмена</button>
+                <button class="btn btn-primary" onclick="submitAccessRequest()">Отправить запрос</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Инициализация AOS
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
+</body>
+</html>

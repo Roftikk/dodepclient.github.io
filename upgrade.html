@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Апгрейд подписки - RustMe Client</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-shield-alt"></i>
+                <span>RustMe</span>
+                <span class="logo-badge">Апгрейд</span>
+            </div>
+            
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Главная</a>
+                <a href="dashboard.html" class="nav-link">Кабинет</a>
+                <a href="purchase.html" class="nav-link">Купить</a>
+            </div>
+            
+            <button class="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <section class="mods-section">
+        <div class="section-header">
+            <h2 class="section-title">Апгрейд <span class="gradient-text">подписки</span></h2>
+            <p class="section-subtitle">Улучшите вашу текущую подписку до более высокой версии</p>
+        </div>
+        
+        <div class="upgrade-options">
+            <div class="upgrade-card">
+                <div class="mod-badge basic">
+                    <i class="fas fa-star"></i>
+                    Basic → Lite
+                </div>
+                <h3>Апгрейд до Lite</h3>
+                <p>Добавляет No Recoil и быстрые стройки</p>
+                <div class="upgrade-price">+40₽</div>
+                <div class="upgrade-savings">Экономия 50₽ от полной цены</div>
+                <ul style="text-align: left; margin: 1.5rem 0; padding-left: 1.5rem;">
+                    <li>No Recoil система</li>
+                    <li>Быстрые стройки</li>
+                    <li>Авто-сбор ресурсов</li>
+                    <li>Умный инвентарь</li>
+                </ul>
+                <a href="purchase.html?mod=lite" class="btn btn-primary">
+                    <i class="fas fa-arrow-up"></i> Улучшить
+                </a>
+            </div>
+            
+            <div class="upgrade-card">
+                <div class="mod-badge lite">
+                    <i class="fas fa-bolt"></i>
+                    Lite → Legit
+                </div>
+                <h3>Апгрейд до Legit</h3>
+                <p>Добавляет Chams и скрытый режим</p>
+                <div class="upgrade-price">+0₽</div>
+                <div class="upgrade-savings">Бесплатный апгрейд</div>
+                <ul style="text-align: left; margin: 1.5rem 0; padding-left: 1.5rem;">
+                    <li>Chams (окраска моделей)</li>
+                    <li>Bind H для скрытия интерфейса</li>
+                    <li>Скрытый режим</li>
+                    <li>Анти-репорт система</li>
+                </ul>
+                <a href="purchase.html?mod=legit" class="btn btn-primary">
+                    <i class="fas fa-arrow-up"></i> Улучшить
+                </a>
+            </div>
+            
+            <div class="upgrade-card">
+                <div class="mod-badge legit">
+                    <i class="fas fa-user-secret"></i>
+                    Legit → Full
+                </div>
+                <h3>Апгрейд до Full</h3>
+                <p>Полный доступ ко всем функциям</p>
+                <div class="upgrade-price">+120₽</div>
+                <div class="upgrade-savings">Экономия 79₽ от полной цены</div>
+                <ul style="text-align: left; margin: 1.5rem 0; padding-left: 1.5rem;">
+                    <li>Все функции ESP</li>
+                    <li>Умный Aimbot</li>
+                    <li>Fly Hack</li>
+                    <li>Приоритетная поддержка</li>
+                </ul>
+                <a href="purchase.html?mod=full" class="btn btn-premium">
+                    <i class="fas fa-crown"></i> VIP Апгрейд
+                </a>
+            </div>
+            
+            <div class="upgrade-card">
+                <div class="mod-badge tester">
+                    <i class="fas fa-vial"></i>
+                    Tester → Basic
+                </div>
+                <h3>Апгрейд до Basic</h3>
+                <p>Переход с тестовой на полную версию</p>
+                <div class="upgrade-price">99₽</div>
+                <div class="upgrade-savings">Специальная цена для тестеров</div>
+                <ul style="text-align: left; margin: 1.5rem 0; padding-left: 1.5rem;">
+                    <li>Полный ESP</li>
+                    <li>Фильтры предметов</li>
+                    <li>Радар</li>
+                    <li>Техподдержка</li>
+                </ul>
+                <a href="purchase.html?mod=basic" class="btn btn-primary">
+                    <i class="fas fa-rocket"></i> Перейти
+                </a>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 4rem;">
+            <h3>Как работает апгрейд?</h3>
+            <div style="max-width: 800px; margin: 2rem auto; padding: 2rem; background: rgba(255,255,255,0.05); border-radius: var(--radius);">
+                <p>1. Вы выбираете нужный апгрейд и нажимаете "Улучшить"</p>
+                <p>2. Откроется страница покупки с уже примененной скидкой</p>
+                <p>3. Производите оплату только разницы в стоимости</p>
+                <p>4. Ваш ключ автоматически обновляется до новой версии</p>
+                <p>5. Оставшееся время старой подписки сохраняется</p>
+            </div>
+            <p style="margin-top: 2rem;">
+                <strong>Вопросы по апгрейду?</strong> Напишите в Telegram: 
+                <a href="https://t.me/dadepbabki" target="_blank" style="color: var(--primary);">@dadepbabki</a>
+            </p>
+        </div>
+    </section>
+</body>
+</html>
